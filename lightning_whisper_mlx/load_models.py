@@ -26,7 +26,7 @@ def load_model(
 
     model_args = whisper.ModelDimensions(**config)
 
-    weights = mx.load(str(model_path / "weights.npz"))
+    weights = mx.load(str(model_path / "weights.safetensors"))
     weights = tree_unflatten(list(weights.items()))
 
     model = whisper.Whisper(model_args, dtype)
